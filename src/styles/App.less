@@ -1,0 +1,39 @@
+@import '~antd/dist/antd.less';
+
+.ant-layout{
+  background-color:#fff;
+  min-height: calc(100vh);
+}
+.ant-layout-header{
+  background-color:#fff;
+  display:flex;
+  align-items:center;
+  box-shadow: 0 2px 4px rgba(0,0,0,.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index:999;
+  .user{
+    margin-left: auto;
+    display:flex;
+    align-items:center;
+    .username{
+      margin-left:5px;
+    }
+  }
+}
+.ant-layout-content{
+  margin-top: 66px;
+  .ant-layout-sider{
+    min-height: calc(100vh - 64px);
+    background: #f7f7f8;
+    .ant-menu{
+      background-color:transparent;
+    }
+  }
+  .content{
+    margin-top:10px;
+  }
+}
