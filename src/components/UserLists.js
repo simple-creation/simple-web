@@ -4,7 +4,6 @@ import { Menu , Input, Button, Table, Space, Modal, Radio } from 'antd';
 import '@styles/UserLists.less';
 import store from '../store.js';
 import {addToUser, deleteToUser} from '../actions/users-actions'
-import {addToTask} from '../actions/task-actions'
 
 const { Search } = Input;
 
@@ -41,7 +40,9 @@ class UserLists extends Component {
 			      </div>
 			    ),
 			}
-		]
+		];
+		this.userId = React.createRef();
+		this.userName = React.createRef();
 	}
 
   	handleClick = e => {
@@ -50,7 +51,6 @@ class UserLists extends Component {
 
 	deleteUser = record => {
 		store.dispatch(deleteToUser(record.id));
-		store.dispatch(addToTask(store));
 	}
 
 	onSearch(){
@@ -68,9 +68,11 @@ class UserLists extends Component {
 	}
 
 	handleOk(){
-
+		let id = this.userId.current.input.value;
+		let name = this.userName.current.input.value;
 		let userrole = this.state.userRole;
-
+		store.dispatch(addToUser(id, name, userrole));
+		this.handleCancel();
 	}
 
 	handleCancel(){
@@ -97,7 +99,7 @@ class UserLists extends Component {
 						基础信息
 					</Menu.Item>
 					<Menu.Item key="2">
-						项目成员
+						项目成员12222
 					</Menu.Item>
 				</Menu>
 				<Space className="addMember">
@@ -112,11 +114,11 @@ class UserLists extends Component {
 				<Modal title = "添加成员"  visible={modalVisible} onOk={this.handleOk.bind(this)} confirmLoading={this.confirmLoading} onCancel={this.handleCancel.bind(this)}>
 					<div className="addId">
 						<div>账号:</div>
-						<Input ref="userId" placeholder="请输入账号信息" />
+						<Input ref={this.userId} placeholder="请输入账号信息" />
 					</div>
 					<div className="addName">
 						<div>用户:</div>
-						<Input ref="userName" placeholder="请输入用户姓名" />
+						<Input ref={this.userName} placeholder="请输入用户姓名" />
 					</div>
 					<div className="addRole">
 						<div>权限:</div>

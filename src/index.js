@@ -5,10 +5,9 @@ import store from './store'
 import '@/index.less';
 import App from '@pages/App';
 
-console.log(store);
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App></App>
   </Provider>,
   document.getElementById('root')
 );
