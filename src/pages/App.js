@@ -1,9 +1,9 @@
 import React,{Component} from 'react'
 import { Layout, Menu, Avatar } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { UserOutlined, LaptopOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import {connect} from 'react-redux'
 
-import UserLists from "@components/UserLists"
+import Basic from "@components/Basic"
 import '@styles/App.less';
 
 const { SubMenu } = Menu;
@@ -37,7 +37,7 @@ export default class App extends Component {
                 defaultOpenKeys={['sub1']}
                 style={{ height: '100%' }}
               >
-                <Menu.Item key="1" icon={<UserOutlined />}>基础信息</Menu.Item>
+                <Menu.Item key="1" icon={<InfoCircleOutlined />}>基础信息</Menu.Item>
                 <SubMenu key="sub1" icon={<LaptopOutlined />} title="项目管理">
                   <Menu.Item key="2">任务管理</Menu.Item>
                   <Menu.Item key="3">需求管理</Menu.Item>
@@ -45,7 +45,7 @@ export default class App extends Component {
               </Menu>
             </Sider>
             <Content className="content" style={{ padding: '0 24px', minHeight: 280 }}>
-              <UserLists />
+              <Basic />
             </Content>
           </Layout>
         </Content>
