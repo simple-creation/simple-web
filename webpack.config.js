@@ -19,7 +19,8 @@ module.exports = {
         }
     },
     devServer: {
-        contentBase: path.resolve(__dirname, './src')
+        contentBase: path.resolve(__dirname, './src'),
+        host :'127.0.0.1'
     },
     performance: {
         hints:false   

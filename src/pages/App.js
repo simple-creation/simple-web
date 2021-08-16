@@ -1,9 +1,14 @@
-import React,{Component} from 'react'
+import React,{Component} from 'react';
+
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+
 import { Layout, Menu, Avatar, Select } from 'antd';
 import { UserOutlined, LaptopOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import {connect} from 'react-redux'
 
 import Basic from "@components/Basic"
+import Task from "@components/Task"
+import Require from "@components/Require"
 import '@styles/App.less';
 
 
@@ -16,8 +21,13 @@ export default class App extends Component {
     super(props);
     let themeName = 'light';
     this.state = {
-        themeName
+        themeName,
+        currentLink:location.hash.replace("#/", "")?.split("/")[0] || 'home',
     };
+  }
+
+  componentDidMount(){
+    
   }
 
   addSkin() {
@@ -55,7 +65,9 @@ export default class App extends Component {
   }
   
   render(){
+    const {currentLink} = this.state;
     return (
+      <Router>
       <Layout>
         <Header theme="light" className="header">
           <div className="title">iTask项目管理</div>
@@ -82,23 +94,28 @@ export default class App extends Component {
             <Sider className="site-layout-background" width={200}>
               <Menu
                 mode="inline"
-                defaultSelectedKeys={['1']}
+                defaultSelectedKeys={[currentLink]}
                 defaultOpenKeys={['sub1']}
                 style={{ height: '100%' }}
               >
-                <Menu.Item key="1" icon={<InfoCircleOutlined />}>基础信息</Menu.Item>
+                <Menu.Item key="home" icon={<InfoCircleOutlined />}>
+                  <Link to="/">基础信息</Link>
+                </Menu.Item>
                 <SubMenu key="sub1" icon={<LaptopOutlined />} title="项目管理">
-                  <Menu.Item key="2">任务管理</Menu.Item>
-                  <Menu.Item key="3">需求管理</Menu.Item>
+                  <Menu.Item key="task"><Link to="/task/2">任务管理</Link></Menu.Item>
+                  <Menu.Item key="require"><Link to="/require">需求管理</Link></Menu.Item>
                 </SubMenu>
               </Menu>
             </Sider>
             <Content className="content" style={{ padding: '0 24px', minHeight: 280 }}>
-              <Basic />
+              <Route exact path="/" component={Basic} />
+              <Route path="/task/:id" component={Task} />
+              <Route path="/require" component={Require} />
             </Content>
           </Layout>
         </Content>
       </Layout>
+      </Router>
     );
   }
 }
