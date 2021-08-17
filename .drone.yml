@@ -19,7 +19,7 @@ steps:
     settings:
       dockerfile: ./release/prod/Dockerfile
       use_cache: true
-      repo: ccr.ccs.tencentyun.com/windwithlife/simpleweb
+      repo: ccr.ccs.tencentyun.com/windwithlife/project-web
       registry: https://ccr.ccs.tencentyun.com
       mirror: https://89cgb0wn.mirror.aliyuncs.com
       username: 100008098144
@@ -35,8 +35,8 @@ steps:
       yaml: ./release/prod/deployment.yaml
       kubeconfig:
         from_secret: kubeconfig
-      app_name: simpleweb
-      image_name: ccr.ccs.tencentyun.com/windwithlife/simpleweb
+      app_name: project-web
+      image_name: ccr.ccs.tencentyun.com/windwithlife/project-web
       soa_gateway: api.koudaibook.com
       soa_gateway_cert: api-koudaibook-cert
       build_tag: build-${DRONE_BUILD_NUMBER}
@@ -75,7 +75,7 @@ steps:
     settings:
       dockerfile: ./release/prod/Dockerfile
       use_cache: true
-      repo: ccr.ccs.tencentyun.com/windwithlife/simpleweb
+      repo: ccr.ccs.tencentyun.com/windwithlife/project-web
       registry: https://ccr.ccs.tencentyun.com/
       mirror: https://89cgb0wn.mirror.aliyuncs.com
       username: 100008098144
@@ -91,8 +91,8 @@ steps:
       yaml: ./release/prod/deployment.yaml
       kubeconfig:
         from_secret: kubeconfig
-      app_name: simpleweb
-      image_name: ccr.ccs.tencentyun.com/windwithlife/simpleweb
+      app_name: project-web
+      image_name: ccr.ccs.tencentyun.com/windwithlife/project-web
       soa_gateway: api.zhangyongqiao.com
       soa_gateway_cert: api-koudaibook-cert
       build_tag: build-${DRONE_BUILD_NUMBER}

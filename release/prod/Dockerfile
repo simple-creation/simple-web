@@ -1,15 +1,9 @@
-FROM node:12.19.0-alpine
-MAINTAINER Joe
+FROM nginx
+# COPY nginx.conf /etc/nginx/nginx.conf
+COPY build /usr/share/nginx/html
+COPY ./release/prod/nginx.conf /etc/nginx/nginx.conf
+RUN  cd /usr/share/nginx/html && ls
+WORKDIR /usr/share/nginx/html
+CMD ["nginx","-g","daemon off;"]
 
-RUN npm config set registry http://registry.npm.taobao.org
-
-RUN mkdir -p /runDIR/web
-COPY ./ /runDIR/web 
-ENV HOST 0.0.0.0
-ENV PORT 80
-ENV NODE_ENV production
-WORKDIR /runDIR/web
-EXPOSE 8080 80
-
-ENTRYPOINT ["npm","start"]
 
