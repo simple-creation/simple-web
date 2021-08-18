@@ -48,10 +48,11 @@ kind: Ingress
 metadata:
   name: ingress-{{.app_name}}
   annotations:
-    nginx.ingress.kubernetes.io/enable-cors: "true"
+    kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
 spec:
   tls:
-  - secretName: {{.soa_gateway_cert}}
+  - secretName: default-auto-secret
     hosts:
     - {{.soa_gateway}}
   rules:
