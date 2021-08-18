@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
@@ -8,19 +9,24 @@ module.exports = {
         path: path.resolve(__dirname, 'build'), //打包文件的输出路径
         filename: 'bundle.js' //打包文件名
     },
+    devtool: 'inline-source-map', 
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'src'),
             '@components': path.resolve(__dirname, 'src/components'),
             '@pages': path.resolve(__dirname, 'src/pages'),
             '@styles': path.resolve(__dirname, 'src/styles'),
-            '@assets': path.resolve(__dirname, 'src/assets'),
-            '@utils': path.resolve(__dirname, 'src/utils')
+            '@static': path.resolve(__dirname, 'src/static'),
+            '@utils': path.resolve(__dirname, 'src/utils'),
+            '@server': path.resolve(__dirname, 'src/server')
         }
     },
     devServer: {
         contentBase: path.resolve(__dirname, './src'),
-        host :'127.0.0.1'
+        host :'127.0.0.1',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
     },
     performance: {
         hints:false   
@@ -59,6 +65,12 @@ module.exports = {
             template: 'src/index.html',
             fileName: 'index.html',
             inject: true
+        }),
+        new copyWebpackPlugin({
+            patterns: [{
+                from: path.resolve(__dirname, 'src/static'),
+                to:'static'
+            }]
         })
     ]
 }

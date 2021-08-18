@@ -45,7 +45,7 @@ export default class App extends Component {
     link.setAttribute('type','text/css');
     link.setAttribute('rel','stylesheet');
     link.setAttribute('data-type','theme');
-    link.setAttribute('href','./antd.dark.css');
+    link.setAttribute('href','../static/antd.dark.css');
     document.body.appendChild(link);
 
   }
