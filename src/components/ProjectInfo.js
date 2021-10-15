@@ -29,7 +29,7 @@ export default class ProjectInfo extends Component {
 
 	saveCKEditor(){
 		let value = this.content.replace("<p>","").replace("</p>","");
-		console.log(value);
+		//console.log(value);
 		this.setState({
 			content: value
 		})
@@ -60,7 +60,7 @@ export default class ProjectInfo extends Component {
 		                    disabled = { hideContent }
 		                    data = { content }
 		                    onReady = { editor => {
-		                        console.log( 'Editor is ready to use!' );
+		                        
 		                    } }
 		                    onChange = { ( event, editor ) => {
 		                      	const data = editor.getData();
