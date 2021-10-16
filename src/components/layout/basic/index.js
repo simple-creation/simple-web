@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 import { Layout, Menu, Avatar, Select } from 'antd';
-import { Header, Header3, Footer, Footer1, Block5, Block0, Block3 } from 'simple-framework';
 
-const { Content, Sider } = Layout;
+
+const { Header,Content, Sider } = Layout;
 
 
 export default class App extends Component {

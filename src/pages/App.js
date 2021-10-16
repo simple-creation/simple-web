@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import SimpleComponent from './routes';
 import SimpleLayout from '@components/layout/simple/index';
@@ -13,19 +13,19 @@ export default class App extends Component {
 
   }
 
- 
 
-  
+
+
   render() {
-   
+
     return (
-    
+
       <SimpleLayout>
         <SimpleComponent></SimpleComponent>
       </SimpleLayout>
 
     );
-    
+
   }
 }
 

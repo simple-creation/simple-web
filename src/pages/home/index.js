@@ -2,10 +2,10 @@ import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { Menu , Input, Button, Space, Modal, Radio } from 'antd';
 import '@styles/UserLists.less';
-import store from '../store.js';
+import store from '../../store.js';
 import UserLists from "@components/UserLists";
 import ProjectInfo from "@components/ProjectInfo";
-import { addToUser } from '../actions/users-actions'
+import { addToUser } from '../../actions/users-actions'
 
 const { Search } = Input;
 
