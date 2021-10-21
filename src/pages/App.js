@@ -5,7 +5,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import SimpleComponent from './routes';
 import SimpleLayout from '@components/layout/simple/index';
 
-import '../styles/App.less'
+//import '../styles/App.less'
 
 export default class App extends Component {
   constructor(props) {

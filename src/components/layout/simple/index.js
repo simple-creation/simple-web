@@ -3,10 +3,11 @@ import {HashRouter as Router, withRouter } from "react-router-dom";
 import {HashHistory} from '@components/route/HistoryRouter';
 
 import { Layout } from 'antd';
-let { Content, } = Layout;
+let { Content } = Layout;
 
-import { Header, Header3, Footer, Footer1, Block5, Block0, Block3 } from 'simple-framework';
-
+import { Header} from 'simple-framework';
+//var Header = require('simple-framework/lib/components/header').default;
+//require('simple-framework/lib/components/header/style');
 
 class SimpleLayout extends Component {
   constructor(props) {

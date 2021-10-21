@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {SimplePage} from 'simple-framework/base'
-import {Block5} from 'simple-framework'
+// import {Block5} from 'simple-framework'
 export default class Test extends SimplePage {
   constructor(props) {
     super(props);
@@ -9,7 +9,7 @@ export default class Test extends SimplePage {
 
   componentDidMount() {
     super.componentDidMount();
-    this.appendSection(Block5);
+    // this.appendSection(Block5);
     this.renderPage();
   }
 

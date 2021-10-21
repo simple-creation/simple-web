@@ -49,19 +49,9 @@
     "rc-queue-anim": "^2.0.0",
     "rc-scroll-anim": "^2.7.6",
     "rc-tween-one": "^2.7.3",
-    "simple-framework": "^1.0.22",
+    "simple-framework": "^1.0.41",
     "style-loader": "^2.0.0",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
-  },
-  "plugins": [
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "libraryDirectory": "es",
-        "style": true
-      }
-    ]
-  ]
+  }
 }
